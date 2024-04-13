@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="container glass">
+        <div class="title">
+            <h1>LOGIN</h1>
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="onLogin()" class="form-horizontal">
+            <label for="">First Name:</label>
+            <input class="rd" type="text" formControlName="username">
+        
+            <label for="">Last Name:</label>
+            <input class="rd" type="password" formControlName="password">
+        
+            <button class="rd" type="submit" [disabled]="!profileForm.valid">Send</button>
+        </form>
+    </div>
+</div>

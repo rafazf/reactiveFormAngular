@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+.alert{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  background-color: green;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  z-index: 9999;
+}

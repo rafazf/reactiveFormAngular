@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+.main{
+  background: url('../../../../assets/img/background.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+.container{
+  width: 400px;
+  border: 2px solid #fafafa10;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: auto;
+}
+.glass{
+  background-color: #fafafa10;
+  backdrop-filter: blur(0.4rem);
+  -webkit-backdrop-filter: blur(0.4rem);
+}
+.title{
+  font-size:18px;
+  text-align: center;
+  color: white;
+}
+.form-horizontal{
+  display: flex;
+  flex-direction: column;
+  gap:  .5rem;
+}
+.rd{
+  border-radius: .3rem;
+  padding: .7rem;
+}
+input{
+  border:0;
+}
+label{
+  color: white;
+}
+button{
+  background-color: #0A1428;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  border: 0;
+}
+button:disabled{
+  opacity: .8;
+}
+@media (max-width: 400px) {
+  .container{
+    width: 90%;
+  }
+}
