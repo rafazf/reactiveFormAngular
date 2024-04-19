@@ -1,0 +1,75 @@
+<div class="main">
+  <div class="searchProd">
+    <input
+      spellcheck="false"
+      class="searchBar"
+      type="text"
+      placeholder="Search by name or title ..."
+      (ngModelChange)="searchAdd($event)"
+      [(ngModel)]="search"
+      [value]="search"
+    />
+  </div>
+
+  <div [ngClass]="{ hidden: !isLoading }" class="searchResults">
+    @if (dataSearch$) {
+    <ul class="productList">
+      @for (item of dataSearch$; track $index) {
+      <li class="itemList" (click)="addProduct(item)">{{ item.model }}</li>
+      }
+    </ul>
+    }
+  </div>
+
+  <div class="products">
+
+    <div class="container">
+      @if (products$ | async; as prod) { @for (product of prod; track $index) {
+      <div class="card" (click)="addProduct(product)">
+        <span class="title">{{ product.brand }}</span>
+        <span class="title">{{ product.model }}</span>
+        <span class="rating">{{ product.price | currency : "USD" }}</span>
+      </div>
+      } }
+    </div>
+
+    <div class="cart">
+      <div class="cartList">
+        @if (card$ | async; as items) { 
+          @for (item of items; track $index) {
+          <div class="filaCart">
+            <div class="detailRow">
+              <span>{{ item.product.brand }}</span>
+              <span>{{ item.product.model }}</span>
+              <span>{{ item.product.price }}</span>
+              <div class="updateQuantity">
+                <button class="btn btnAddProduct" (click)="updateQuantity('-',item.product.id)">-</button>
+                <input 
+                  [value]="item.cant" 
+                  type="text" 
+                  class="cant"
+                  (ngModelChange)="setCant($event,item.product.id)"
+                  [(ngModel)]="item.cant"
+                />
+                <button class="btn btnAddProduct" (click)="updateQuantity('+',item.product.id)">+</button>
+                <button class="btn btnDeleted" (click)="onDeleted($index)">x</button>
+              </div>
+            </div>
+          </div>
+          } 
+        }
+      </div>
+
+      <div class="infoPay">
+        <div class="total">
+          <span>Subtotal</span>
+          <span>{{ total | currency : "USD" }}</span>
+        </div>
+        <div>
+          <button class="btnPay">Pay</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.btn{
+  background-color: black;
+  padding: .3rem;
+  color: white;
+  border-radius: .3rem;
+  cursor: pointer;
+  margin: .3rem;
+}

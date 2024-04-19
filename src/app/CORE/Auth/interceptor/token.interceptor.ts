@@ -6,7 +6,7 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenService = inject(TokenService) as TokenService;
   const token = tokenService.getToken();
 
-  if (token !== null) {
+  if (token == null) {
     req = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`,
